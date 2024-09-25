@@ -1,0 +1,43 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-24-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="User Information Form">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Name" type="Text" value={name} onchange={handleInputChange} data-id="name"></lightning-input>
+            <lightning-input label="Email" type="Email" value={email} onchange={handleInputChange} data-id="email"></lightning-input>
+            <lightning-input label="Phone" type="phone" value={phone} onchange={handleInputChange} data-id="phone"></lightning-input>
+            <lightning-combobox 
+                label="Preferred Contact Method" 
+                placeholder="Select an option"
+                options={contactOptions} 
+                value={selectedContactMethod} 
+                onchange={handlePicklistChange}>
+            </lightning-combobox>
+
+            <lightning-input-address 
+            label="Address" 
+            street={street} 
+            city={city} 
+            province={province} 
+            country={country} 
+            postal-code={postalCode} 
+            onchange={handleAddressChange}>
+        </lightning-input-address>
+        </div>
+
+        <!-- Display the captured data -->
+        <div class="slds-m-top_medium">
+            <p><strong>Entered Information:</strong></p>
+            <p>Name: {name}</p>
+            <p>Email: {email}</p>
+            <p>Phone: {phone}</p>
+            <p>Preferred Contact Method: {selectedContactMethod}</p>
+            <p>Address: {street}, {city}, {province}, {country}, {postalCode}</p>
+        </div>
+    </lightning-card>
+</template>
